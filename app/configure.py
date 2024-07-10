@@ -1,7 +1,7 @@
-import os
+from decouple import config
 class Config:
     SECRET_KEY ="secret-key"
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = config("DATABASE_URL")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOAD_FOLDERS = {
         'python': {

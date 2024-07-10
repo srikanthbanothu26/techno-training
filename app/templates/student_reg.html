@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION</title>
+    <link rel="icon" href="static\best-it-academy-favicon-color (1).ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto flex justify-center items-center h-screen">
+        <div class="grid lg:grid-cols-2 md:grid-cols-2 xl:grid-cols-2 sm:grid-cols-2 xsm:grid-cols-1 bg-white shadow-lg rounded-lg overflow-hidden w-full flex">
+            <img src="https://www.shutterstock.com/image-photo/portrait-attractive-cheerful-girl-demonstrating-600nw-2113649489.jpg" alt="Image" class="hidden xl:block lg:block xsm:block sm:block md:block h-full w-full object-cover object-center flex-gow">
+            <form method="POST" action="/student_registration" class="h-96 p-4 grid justify-center items-center">
+                <a href="/" class="block text-right text-blue-600 mb-2 flex items-center justify-end">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+                      </svg>
+                      <p>BACK</p>
+                </a>
+                {{ form.csrf_token }}
+                <div class="text-center pb-4">
+                    <h1 class="text-3xl font-bold text-gradient">BEST</h1>
+                    <h2 class="text-xl">IT ACADEMY</h2>
+                </div>
+                <div class="grid-cols-2 grid items-center justify-center mb-2 gap-10">
+                    <div>
+                        <label for="username" class="block text-gray-700">Username</label>
+                        {{ form.username(class="w-full p-2 rounded border-2 border-gray-300", placeholder="Enter your name") }}
+                    </div>
+                    <div>
+                        <label for="course" class="block text-gray-700">Course</label>
+                        {{ form.course(class="w-full p-2 rounded border-2 border-gray-300") }}
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label for="email" class="block text-gray-700">Email</label>
+                    {{ form.email(class="w-full p-2 rounded border-2 border-gray-300", placeholder="Enter your email id") }}
+                </div>
+                <div class="mb-2 grid grid-cols-2 items-center gap-10">
+                    <div>
+                        <label for="password" class="block text-gray-700">Password</label>
+                        {{ form.password(id="password", class="w-full p-2 rounded border-2 border-gray-300", placeholder="Enter more than 6 characters") }}
+                    </div>
+                    <div>
+                        <label for="confirm_password" class="block text-gray-700">Confirm Password</label>
+                        {{ form.confirm_password(id="confirm_password", class="w-full p-2 rounded border-2 border-gray-300", placeholder="Enter more than 6 characters") }}
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 justify-center ml-10 mr-10 items-center mt-4">
+                    <p>already have an Account? <a class="border-b-2 border-black hover:text-red-600" href="/student_login"> Login</a><p>
+
+                    {% if user_exists %}
+                        <p class="text-red-500">Username or email already exists. Please choose different credentials.</p>
+                    {% endif %}
+                    <button type="submit" onclick="return validateForm()" class="rounded-xl  border-2 pt-2 pb-2 pl-2 pr-2 border-blue-800 ml-4 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                          </svg>
+                        <p>SIGN-UP</p>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm_password").value;
+            if (password !== confirmPassword || password.length < 6) {
+                document.getElementById("passwordMatchMessage").classList.remove("hidden");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>

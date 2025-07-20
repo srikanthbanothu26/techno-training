@@ -1,4 +1,4 @@
-from flask import flash, redirect, request, session, Blueprint, send_from_directory, jsonify,current_app,Response
+from flask import flash, redirect, request, session, Blueprint, send_from_directory, jsonify, current_app, Response
 from werkzeug.utils import secure_filename
 import os
 from app import Config
@@ -8,16 +8,19 @@ from datetime import datetime
 import pytz
 from flask_login import login_required
 
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'docx','mp4'}
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'docx', 'mp4'}
 
 uploads_bp = Blueprint('uploads', __name__)
+
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-#uploaded files downloaded here
+
+# uploaded files downloaded here
 
 from flask import make_response
+
 
 @uploads_bp.route('/uploads/<course>/<file_type>/<filename>', methods=["GET", "POST"])
 @login_required
@@ -44,40 +47,40 @@ def course_file(course, file_type, filename):
         return "File not found", 404
 
 
-#file uploads here
+# file uploads here
 @uploads_bp.route('/upload/<file_type>', methods=["POST"])
 def upload_file(file_type):
     if 'email' not in session:
         flash('You must be logged in to upload files', 'error')
         return redirect('/faculty_login')
-    
+
     user_email = session['email']
     faculty_course = session.get('course')
     if faculty_course not in Config.UPLOAD_FOLDERS:
         flash('Invalid course selected', 'error')
         return redirect('/faculty_reg')
-    
+
     if file_type not in Config.UPLOAD_FOLDERS[faculty_course]:
         flash('Invalid file type selected', 'error')
         return redirect('/faculty_home')
-    
+
     upload_folder = Config.UPLOAD_FOLDERS[faculty_course][file_type]
     if not os.path.exists(upload_folder):
         os.makedirs(upload_folder)
-    
+
     files = request.files.getlist('file')
     faculty = Faculty.query.filter_by(email=user_email).first()
     if not faculty:
         flash('Faculty not found', 'error')
         return redirect('/faculty_login')
-    
+
     faculty_id = faculty.id
-    
+
     for file in files:
         if file.filename == '':
             flash('No selected file', 'error')
             return redirect(request.url)
-        
+
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file_path = os.path.join(upload_folder, filename)
@@ -86,14 +89,14 @@ def upload_file(file_type):
             current_time_utc = datetime.utcnow()
             current_time_ist = current_time_utc.astimezone(ist_timezone)
             formatted_date = current_time_ist.strftime('%a, %d %b %Y %H:%M:%S GMT')
-            new_file = File(filename=filename, filepath=file_path,faculty_id=faculty_id,day=formatted_date)
+            new_file = File(filename=filename, filepath=file_path, faculty_id=faculty_id, day=formatted_date)
             db.session.add(new_file)
             db.session.commit()
-                    
+
             flash('File uploaded successfully', 'success')
         else:
             flash('Invalid file format', 'error')
-    
+
     return redirect(request.referrer + '#success-message')
 
 
@@ -113,7 +116,8 @@ def search_files():
     files_data = [{'filename': file.filename, 'day': file.day} for file in files]
     return jsonify(files_data)
 
-#for uploaded files diplasying purpose
+
+# for uploaded files diplasying purpose
 @uploads_bp.route('/uploaded_files', methods=['GET'])
 def get_uploaded_files():
     if 'email' not in session:
@@ -128,7 +132,8 @@ def get_uploaded_files():
     files = [{'filename': file.filename, 'day': file.day} for file in user_files]
     return jsonify(files)
 
-#for deleting files 
+
+# for deleting files
 @uploads_bp.route('/deletefile', methods=['POST'])
 def delete_files():
     filename = request.json.get('filename')

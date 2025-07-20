@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, flash, request, session,jsonify
+from flask import Blueprint, render_template, redirect, flash, request, session, jsonify
 from app.forms.forms import AssessmentForm
 from app.models.models import Assessment, Faculty
 from app.extensions.db import db
@@ -8,11 +8,11 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-assessment_bp=Blueprint("assessment",__name__)
+assessment_bp = Blueprint("assessment", __name__)
+
 
 @assessment_bp.route('/upload_assessment', methods=['GET', 'POST'])
 def upload_assessment():
-    
     form = AssessmentForm()
 
     if request.method == 'POST':
@@ -49,7 +49,7 @@ def upload_assessment():
                         course=course
                     )
                     db.session.add(assessment)
-            
+
             try:
                 db.session.commit()  # Commit changes after adding all assessments
             except Exception as e:
@@ -68,9 +68,9 @@ def upload_assessment():
     return render_template('upload_assessment.html', form=form)
 
 
-
 from datetime import datetime, timedelta
 from flask import request, redirect, url_for, flash
+
 
 @assessment_bp.route('/assessments/<course>', methods=['GET', 'POST'])
 def display_assessments(course):
@@ -84,7 +84,7 @@ def display_assessments(course):
         now = datetime.now()
         end_time = now + timedelta(minutes=2)  # Assuming 10 minutes time limit
         submitted_time = datetime.strptime(request.form.get('submitted_time'), '%Y-%m-%d %H:%M:%S')
-        
+
         if now <= end_time <= submitted_time:
             # Process the submitted answers
             # Here you should handle the submitted answers, calculate scores, etc.
@@ -135,9 +135,11 @@ def delete_question():
     else:
         # Question record not found in the database
         return jsonify({'error': 'Question record not found in the database'}), 404
-    
+
 
 from flask import render_template, request
+
+
 @assessment_bp.route('/submit_answers/<course>', methods=['POST'])
 def submit_answers(course):
     if request.method == 'POST':
@@ -156,15 +158,15 @@ def submit_answers(course):
 
         results = []
         total_marks = 1
-        
+
         for question in questions:
             selected_option = user_answers.values()  # Get the selected option for the current question
             print(selected_option)
             correct_option = question.correct_answer
-            
+
             for x in selected_option:
                 if x == correct_option:
-                    total_marks =total_marks*2      
+                    total_marks = total_marks * 2
             results.append({
                 'question': question.question,
                 'selected_option': selected_option,
@@ -175,7 +177,7 @@ def submit_answers(course):
             template_context = {
                 'results': results,
                 'total_marks': total_marks,
-                'enumerate': enumerate  
+                'enumerate': enumerate
             }
 
         return render_template("assessmentresult.html", **template_context)

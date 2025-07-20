@@ -3,7 +3,8 @@ from flask import Flask
 from app.extensions.db import db
 from app.configure import Config
 from app.extensions.login_manager import login_manager
-from app.routes import main, student, faculty, stu_course, uploads,assessments
+from app.routes import main, student, faculty, stu_course, uploads, assessments
+
 
 def create_app():
     server = Flask(__name__)
@@ -14,6 +15,7 @@ def create_app():
         db.create_all()
     register_blueprints(server)
     return server
+
 
 def register_blueprints(app):
     app.register_blueprint(main.main_bp)

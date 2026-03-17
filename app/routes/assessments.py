@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, flash, request, session, jsonify
 from app.forms.forms import AssessmentForm
 from app.models.models import Assessment, Faculty
-from app.extensions.db import db
+from app.extensions import db
 import logging
 
 # Configure logging

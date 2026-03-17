@@ -4,7 +4,7 @@ from app.oper.oper import check_faculty_exists, add_faculty
 from flask_bcrypt import Bcrypt
 from flask_login import login_user
 from app.models.models import Faculty, placement
-from app.extensions.db import db
+from app.extensions import db
 
 bcrypt = Bcrypt()
 faculty_bp = Blueprint('faculty', __name__)

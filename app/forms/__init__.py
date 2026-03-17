@@ -1,1 +1,1 @@
-from app.forms.forms import *
+from .forms import *

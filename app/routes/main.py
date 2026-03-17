@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, session, redirect, request, flash, jsonify, current_app
 from flask_login import login_required
 from app.models.models import placement, Image, Person
-from app.extensions.db import db
+from app.extensions import db
 from app.forms.forms import PersonForm
 from werkzeug.utils import secure_filename
 from flask_wtf.csrf import generate_csrf

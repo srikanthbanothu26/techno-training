@@ -7,10 +7,12 @@
     <link rel="icon" href="static\best-it-academy-favicon-color (1).ico" type="image/x-icon">
 </head>
 <body>
-    <h1>Upload Image</h1>
-    <form action="/addpics" method="post" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*" required>
-        <button type="submit">Upload</button>
-    </form>
+<h1>Upload Image</h1>
+<form action="/addpics" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    <input type="file" name="image" accept="image/*" required>
+    <button type="submit">Upload</button>
+</form>
 </body>
 </html>

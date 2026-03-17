@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 from app.models.models import User
 from flask_login import login_user, login_required, current_user, logout_user
 import os
-from app.extensions.db import db
+from app.extensions import db
 from werkzeug.utils import secure_filename
 from flask_wtf.csrf import generate_csrf
 from sqlalchemy.exc import IntegrityError

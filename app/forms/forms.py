@@ -3,8 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SelectField,SubmitField,DateField,TextAreaField
 from wtforms.validators import InputRequired, Email, EqualTo, Length,DataRequired,ValidationError
 import re
-from app.models.models import User
-from app.models.models import Faculty
+from app.models import User, Faculty
 from flask_wtf.file import FileField, FileAllowed
 
 class Student_RegistrationForm(FlaskForm):

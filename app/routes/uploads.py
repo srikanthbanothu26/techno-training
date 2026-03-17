@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 import os
 from app import Config
 from app.models.models import Faculty, File
-from app.extensions.db import db
+from app.extensions import db
 from datetime import datetime
 import pytz
 from flask_login import login_required

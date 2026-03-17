@@ -2,6 +2,8 @@
 *.pyc
 __pycache__/
 
+migrations
+
 upload_python_notes/
 upload_python_recordings/
 upload_python_assessments/

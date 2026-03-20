@@ -1,6 +1,6 @@
 # app/routes/oper.py
 
-from app.models.models import db, User, Faculty
+from app.models import User, Faculty, db
 from flask import current_app
 
 

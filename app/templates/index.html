@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEST IT ACADEMY</title>
+    <title>SkillForge Institute</title>
     <link rel="stylesheet" href="static\css\first.css">
     <link rel="icon" href="static\best-it-academy-favicon-color (1).ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,21 +11,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
           integrity="sha384-qf97I+0o3+D7fK2VFcFhJjRpKP5jWfD5zNhm1Tjo+T8TziqUDG+ThQo2rhJlF+8u" crossorigin="anonymous">
 </head>
-<body class="cursor-pointer font-sans italic text-gray-600"> <!--top-->
-<div class="first  py-4 fixed w-full  shadow-md bg-gray-600" id="home">
-    <div class="container mx-auto flex justify-between items-center">
+<body class="cursor-pointer font-sans italic"> <!--top-->
+<div class="first  py-4 fixed w-full" id="home">
+    <div class="container mx-auto flex justify-between items-center bg-zinc-200 p-2 text-gray-600">
         <div class="logo flex items-center">
-            <a href="/" class="flex items-center sm:flex-col lg:flex-row border-2 rounded-md shadow-md">
-                <img class="h-16" src="static\best-it-academy-favicon-color.png">
+            <a href="/" class="flex items-center sm:flex-col lg:flex-row">
+                <!--                <img class="h-16" src="static\best-it-academy-favicon-color.png">-->
                 <div class="grid grid-cols-1">
                     <div class="flex">
-                        <h1 class="font-bold text-white lg:text-2xl md:text-xl  sm:text-xl">BEST</h1>
-                        <h2 class="font-bold text-white lg:ml-4 md:ml-3 lg:text-2xl md:text-xl sm:ml-2 sm:text-sm"> IT
-                            ACADEMY</h2>
+                        <h1 class="font-bold lg:text-2xl md:text-xl  sm:text-xl">SkillForge Institute</h1>
                     </div>
-                    <div class="text-sm text-white">
-                        <p>Bridging Excellence, Striving Together</p>
-                    </div>
+                    <!--                    <div class="text-sm text-white">-->
+                    <!--                        <p>Bridging Excellence, Striving Together</p>-->
+                    <!--                    </div>-->
                 </div>
 
             </a>
@@ -34,19 +32,19 @@
             <ul class="flex gap-6">
                 <li class="nav-item">
                     <a href="#about" onclick="scrollToSection(event, 'about')"
-                       class="text-white hover:text-gray-300 transition font-bold text-white ">About</a>
+                       class="hover:text-blue-500 transition font-bold ">About</a>
                 </li>
                 <li class="nav-item">
                     <a href="#COURSES" onclick="scrollToSection(event, 'COURSES')"
-                       class="text-white  hover:text-gray-300 transition font-bold text-white ">Courses</a>
+                       class=" hover:text-blue-500 transition font-bold">Courses</a>
                 </li>
                 <li class="nav-item">
                     <a href="#contact" onclick="scrollToSection(event, 'contact')"
-                       class="text-white  hover:text-gray-300 transition font-bold text-white ">Contact</a>
+                       class="hover:text-blue-500 transition font-bold">Contact</a>
                 </li>
                 <li>
-                    <a href="/pics" class="flex items-center text-white  font-bold">
-                        <p>Explore Photos and Videos</p>
+                    <a href="/pics" class="flex items-center font-bold">
+                        <p>Gallery</p>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke-width="1.5"
                              stroke="currentColor" class="size-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
@@ -57,13 +55,13 @@
             <div class="flex gap-4">
                 <form method="POST" action="{{ url_for('student.registration') }}">
                     <button type="submit"
-                            class="text-white font-semibold bg-transparent border border-white py-2 px-4 rounded-full hover:bg-white hover:text-blue-800 transition duration-300">
+                            class="font-semibold bg-transparent py-2 px-4 rounded-full hover:text-blue-800 transition duration-300">
                         Registration
                     </button>
                 </form>
                 <form method="POST" action="{{ url_for('student.login') }}">
                     <button type="submit"
-                            class="text-white font-semibold bg-transparent border border-white py-2 px-4 rounded-full hover:bg-white hover:text-blue-800 transition duration-300">
+                            class="font-semibold bg-transparent py-2 px-4 rounded-full hover:text-blue-800 transition duration-300">
                         Login
                     </button>
                 </form>
@@ -72,17 +70,17 @@
     </div>
 </div>
 
-<div class="xy bg-cover bg-no-repeat pt-28 pb-10 object-cover object-center bg-center rounded-md shadow-md"
-     style="background-image: url('/static/img/pexels-divinetechygirl-1181233.jpg');">
+<div class="xy bg-cover bg-no-repeat pt-28 pb-10 object-cover object-center bg-center shadow-md"
+     style="background-image: url('/static/images/ai image.jpg');">
     <!--  "background-image: url('https://assets-global.website-files.com/6418039f61e2dee88d2282fa/64ba497a996fdf73d1951964_Frame%2034.webp');">
     -->
     <div class="bg-opacity-70 py-32">
-        <div class="container  text-white">
-            <h1 class="text-5xl font-bold text-center mb-8">Welcome to BEST IT ACADEMY</h1>
-            <p class="text-lg font-semibold text-center mb-12">Where Innovation Meets Expertise!</p>
+        <div class="container  text-zinc-100">
+            <h1 class="text-5xl font-bold mb-8 ml-4">Welcome to SkillForge Institute </h1>
+            <p class="text-lg font-semibold mb-12 ml-10">Where Innovation Meets Expertise!</p>
             <div class="flex ml-10 gap-20">
                 <a href='/student_registration'
-                   class="flex items-center p-4  bg-transparent  text-white text-xl font-semibold rounded-full shadow-lg transition duration-300 border-white border-2">
+                   class="flex items-center p-4  bg-transparent  text-blue-400 text-xl font-semibold rounded-full shadow-lg transition duration-300 border-white border-2 hover:text-green-500">
                     <p>Get Started</p>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                          stroke="currentColor" class="size-6">
@@ -95,7 +93,7 @@
     </div>
 </div>
 <h1 class="text-4xl font-bold text-center  mb-4 mt-4 p-4 bg-zinc-200 m-10 flex items-center justify-center">
-    <p>Explore Our Courses</p>
+    <p class="text-gray-600">Explore Our Courses</p>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
          class="size-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"/>
@@ -109,7 +107,7 @@
             <img src="https://5.imimg.com/data5/QY/TP/MZ/SELLER-10578244/python-training-course.jpeg"
                  alt="Python Course Image" class="h-48 object-cover object-center w-full p-2">
             <div class="p-6">
-                <h2 class="text-xl font-semibold mb-2">Python</h2>
+                <h2 class="text-xl font-semibold mb-2 text-gray-500">Python</h2>
                 <p class="text-gray-700 mb-4"><i class="fas fa-clock"></i> 6 months</p>
                 <a href="/python_info"
                    class="block flex items-center justify-center w-full text-center py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300">
@@ -128,7 +126,7 @@
             <img src="https://st2.depositphotos.com/1004174/7566/i/450/depositphotos_75664409-stock-photo-programming-concept.jpg"
                  alt="Java Course Image" class="h-48 object-cover object-center w-full p-2">
             <div class="p-6">
-                <h2 class="text-xl font-semibold mb-2">Java</h2>
+                <h2 class="text-xl font-semibold mb-2 text-gray-500">Java</h2>
                 <p class="text-gray-700 mb-4"><i class="fas fa-clock"></i> 6 months</p>
                 <a href="/java_info"
                    class="block flex items-center justify-center w-full text-center py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300">
@@ -147,7 +145,7 @@
             <img src="https://img.freepik.com/premium-vector/premium-icon-growth-analysis-flat-style_9206-4849.jpg?w=740"
                  alt="Testing Tools Image" class="h-48 object-cover w-full object-center p-2">
             <div class="p-6">
-                <h2 class="text-xl font-semibold mb-2">Testing Tools</h2>
+                <h2 class="text-xl font-semibold mb-2 text-gray-500">Testing Tools</h2>
                 <p class="text-gray-700 mb-4"><i class="fas fa-clock"></i> 4 months</p>
                 <a href="/testingtools_info"
                    class="block flex items-center justify-center w-full text-center py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300">
@@ -166,7 +164,7 @@
             <img src="https://img.freepik.com/free-photo/digital-marketing-with-icons-business-people_53876-94833.jpg?size=626&ext=jpg"
                  alt="Digital marketing image" class="h-48 object-cover w-full object-center p-2">
             <div class="p-6">
-                <h2 class="text-xl font-semibold mb-2">Digital Marketing</h2>
+                <h2 class="text-xl font-semibold mb-2 text-gray-500">Digital Marketing</h2>
                 <p class="text-gray-700 mb-4"><i class="fas fa-clock"></i> 6 months</p>
                 <a href="/digitalmarketing_info"
                    class="block flex items-center justify-center w-full text-center py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300">
@@ -182,7 +180,7 @@
     </div>
 </div>
 <h1 class="text-3xl font-bold text-center  mb-4 mt-4 p-4 bg-zinc-200 m-10 flex items-center justify-center">
-    <p>ABOUT US</p>
+    <p class="text-gray-600">ABOUT US</p>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
          class="size-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"/>
@@ -228,7 +226,7 @@
 </div>
 <h1 class="text-3xl font-bold mb-6 text-center bg-zinc-200 m-10">Why Choose Us?..</h1>
 <!-- Organization Offers -->
-<div class="text-black grid grid-cols-1 items-center justify-center h-full m-10 bg-cover object-cover bg-center object-center rounded-md shadow-md p-10"
+<div class="text-gray-600 grid grid-cols-1 items-center justify-center h-full m-10 bg-cover object-cover bg-center object-center rounded-md shadow-md p-10"
      style="background-image:url('https://gohyer.com/wp-content/uploads/2020/08/Background@2x-scaled.jpg')">
     <div class="grid grid-cols-3  gap-y-6 gap-x-10 items-center justify-center w-full">
         <!-- Each Offer -->
@@ -369,38 +367,33 @@
 </div>
 <!--bottom-->
 <div id="contact"
-     class="bg-zinc-200 h-64 grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 md:w-full sm:w-full sm:h-full md:h-full bottom-0 w-screen lg:text-sm md:text-sm md:text-sm border-t-8 m-0 ">
+     class="h-64 grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 md:w-full sm:w-full sm:h-full md:h-full bottom-0 w-screen lg:text-sm md:text-sm md:text-sm m-0 border-t-2">
     <div class="grid grid-cols-1 justify-center items-start gap-4 py-8 px-6">
         <a href="/" class="flex">
             <div class="flex lg:flex-row   sm:flex-col md:flex-row lg:text-2xl sm:text-xl md:text-xl items-center ">
-                <h1 class="font-bold mr-2 text-black">BEST </h1>
-                <h2 class="font-bold text-black">IT Academy</h2>
+                <h1 class="font-bold mr-2 text-gray-600">SkillForge Institute </h1>
             </div>
         </a>
         <h2 class="text-lg">Follow us:</h2>
         <div class="flex items-center gap-4">
-            <a href="https://www.facebook.com/Bestitacademy" target="_blank"
-               class="text-blue-600 hover:text-blue-500 transition duration-300">
-                <i class="fab fa-facebook-square"></i> Facebook
-            </a>
             <a href="https://www.instagram.com/bestitacademy/"
                class="text-blue-600 hover:text-pink-500 transition duration-300">
-                <i class="fab fa-instagram"></i> Instagram
+                <i class="fab fa-instagram"></i>
             </a>
             <a href="https://twitter.com/i/flow/login?redirect_after_login=%2FBestitacademy"
                class="text-blue-600 hover:text-blue-400 transition duration-300">
-                <i class="fab fa-twitter"></i> Twitter
+                <i class="fab fa-twitter"></i>
             </a>
         </div>
     </div>
-    <div class="flex items-center justify-center py-8 px-6">
+    <div class="flex items-center justify-center py-8 px-6 text-gray-400">
         <p class="text-lg">We provide best Corporate level trainings which is first of its kind in Hyderabad, both
             classroom and online with 100% placement assistance. All our instructors are experts and highly
             experienced.</p>
     </div>
     <div class="flex flex-col justify-center items-start gap-4 py-8 px-6">
-        <h2 class="text-lg font-semibold">Contact Us:</h2>
-        <a href="https://maps.app.goo.gl/9V9FmPG2jkqQrEWX9" class=" hover:text-green-500 transition duration-300">
+        <h2 class="text-lg font-semibold text-gray-500">Contact Us:</h2>
+        <a href="https://maps.app.goo.gl/9V9FmPG2jkqQrEWX9" class=" hover:text-blue-500 transition duration-300">
             <i class="fas fa-map-marker-alt"></i> 4th Floor, Mithai Wala Building, opp. Metro Pillar Number 1595,
             Kothapet, Hyderabad, Telangana - 500035
         </a>
@@ -408,10 +401,6 @@
             <p class="text-lg">
                 <i class="fas fa-phone"></i> <a href="tel:+919390379057"
                                                 class="text-red-600 hover:text-green-500 transition duration-300">+91-9390379057</a>
-            </p>
-            <p class="text-lg">
-                <i class="fas fa-phone"></i> <a href="tel:+919908980756"
-                                                class="text-red-600 hover:text-green-500 transition duration-300">+91-9908980756</a>
             </p>
         </div>
         <a href="mailto:info@banothusrikanth267@gmail.com" class="hover:text-yellow-500 transition duration-300">
